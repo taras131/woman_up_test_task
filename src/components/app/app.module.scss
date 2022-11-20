@@ -1,0 +1,15 @@
+.wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+  width: 100%;
+  .task_section {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 40px;
+  }
+}
+
+
