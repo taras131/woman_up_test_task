@@ -3,7 +3,8 @@ import styles from "./button.module.scss";
 
 const Button = ({children, handleClick}) => {
     return (
-        <button className={styles.wrapper} onClick={handleClick}>
+        <button className={styles.wrapper}
+                onClick={handleClick}>
             {children}
         </button>
     );

@@ -1,69 +1,54 @@
+@use "src/styles/color-variables" as vars;
+
 .wrapper {
   padding: 0 15px;
-  border: 1px solid black;
+  box-shadow: 0 0 4px vars.$drop-shadow-small, 0 4px 16px vars.$drop-shadow-small;
+  background-color: vars.$bg-primary;
   border-radius: 5px;
   width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  .header {
-    min-height: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-
-
-    .date_input {
-      border-radius: 5px;
-      height: 30px;
-      padding: 5px;
-      width: 130px;
+  transition: all .3s;
+  opacity: 0;
+  animation: ani 2.5s forwards;
+  @keyframes ani {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
     }
   }
 
-  .main {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    min-height: 100px;
-    width: 100%;
+  input, textarea {
+    border: 1.2px solid vars.$borders-divider-disabled-bg;
 
-    .title_block {
-
-      input {
-        border-radius: 5px;
-        height: 35px;
-        font-size: 16px;
-        width: 100%;
-        padding: 5px;
-      }
+    &:hover {
+      cursor: pointer;
     }
 
-    textarea {
-      border-radius: 5px;
-      padding: 5px;
-      font-size: 16px;
+    &:focus {
+      outline: 1.2px solid vars.$color-primary;
     }
-
-    p {
-
-    }
-  }
-
-  .footer {
-    min-height: 60px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
   }
 }
 
 .completed {
-  background-color: green;
+  background-color: vars.$success;
   color: white;
+}
+
+.edit {
+  background-color: vars.$dark-secondary;
+}
+
+.after {
+  background-color: vars.$warning;
+}
+
+.new {
+  background-color: vars.$drop-shadow-small;
+  opacity: 1;
 }

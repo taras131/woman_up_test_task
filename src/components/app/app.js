@@ -1,52 +1,28 @@
-import styles from "./app.module.scss";
 import TaskCard from "../task_card/task_card";
-import {startTasks} from "../../face-data";
 import {useEffect, useState} from "react";
+import styles from "./app.module.scss";
 import {db} from "../../config/firebase";
 import {
     query,
     collection,
     onSnapshot,
-    updateDoc,
-    doc,
-    deleteDoc,
-} from 'firebase/firestore';
+} from "firebase/firestore";
+import {TASK_COLLECTION_NAME} from "../../utils/constants";
 
 const App = () => {
-    const [tasks, setTasks] = useState(startTasks)
-
+    const [tasks, setTasks] = useState([])
     useEffect(() => {
-        const q = query(collection(db, 'tasks'));
+        const q = query(collection(db, TASK_COLLECTION_NAME));
         const unsubscribe = onSnapshot(q, (querySnapshot) => {
             let tasksArr = [];
             querySnapshot.forEach((doc) => {
                 tasksArr.push({...doc.data(), id: doc.id});
             });
-            setTasks(tasksArr);
+            setTasks(tasksArr.sort((a, b) => b.timeCreation - a.timeCreation));
         });
         return () => unsubscribe();
     }, [])
-
-    const toggleIsCompleted = async (id, isCompleted) => {
-        await updateDoc(doc(db, 'tasks', id), {
-            isCompleted: !isCompleted
-        });
-    };
-
-    const removeTask = async (id) => {
-        await deleteDoc(doc(db, 'tasks', id));
-    };
-
-    const updateTask= async (id, task) => {
-        await updateDoc(doc(db, 'tasks', id), task);
-    };
-
-    const taskList = tasks.map((item, index) => (<TaskCard key={item.id}
-                                                           {...item}
-                                                           toggleIsCompleted={toggleIsCompleted}
-                                                           index={index}
-                                                           removeTask={removeTask}
-                                                           updateTask={updateTask}/>))
+    const taskList = tasks.map(item => (<TaskCard key={item.id} {...item}/>))
     return (
         <div className={styles.wrapper}>
             <h1>TODO</h1>
