@@ -3,12 +3,17 @@
   margin-right: auto;
   padding: 15px;
   width: 100%;
+
   .task_section {
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
     gap: 25px;
     margin-top: 40px;
+
+    li {
+      list-style-type: none;
+    }
   }
 }
 
