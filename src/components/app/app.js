@@ -27,7 +27,7 @@ const App = () => {
                 });
                 setTasks(tasksArr.sort((a, b) => b.timeCreation - a.timeCreation));
                 } catch (e) {
-                    alert(e)
+                    alert(e);
                 }
             });
             return () => unsubscribe();
