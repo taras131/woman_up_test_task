@@ -9,9 +9,9 @@ export const firebaseConfig = {
     projectId: "todo-c911a",
     storageBucket: "todo-c911a.appspot.com",
     messagingSenderId: "699996723226",
-    appId: "1:699996723226:web:df7ee983c63a304bf799a3"
+    appId: "1:699996723226:web:df7ee983c63a304bf799a3",
 };
 
 export const app = initializeApp(firebaseConfig);
 export const storage = getStorage();
-export const db = getFirestore(app)
+export const db = getFirestore(app);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import Button from "../../button/button";
 import styles from "./task-card-footer.module.scss";
 import back from "../../../assets/icons/back.png";
@@ -7,6 +7,22 @@ import remove from "../../../assets/icons/delete.png";
 import edit from "../../../assets/icons/edit.png";
 import plus from "../../../assets/icons/plus.png";
 
+/**
+ * @description Компонент TaskCardFooter рендерит подвал карточки задачи и принимает следующие пропсы.
+ *
+ * - isEdit - boolean - при true включает режим редактирования задачи.
+ * - isNewTask - boolean - если флаг true - компонент служит для создания новых задач.
+ * - toggleIsEdit - функция - меняет значение флага режима редактирования isEdit на противоположное.
+ * - handleChangeFile - функция - устанавливает выбранные файл в state компонента TaskCard.
+ * - handleSave - функция - функция обрабатывающия событие клика по кнопке "сохранить".
+ * - handleRemoveTask - функция - функция обрабатывающия событие клика по кнопке "удалить".
+ * - fileName - string - имя прикреплённого файла, в случаи, если компонент рендерит новую задачу или файл
+ * не прикреплён, - "".
+ * - filePath - string - путь к прикреплённому файлу, в случаи, если компонент рендерит новую задачу или файл
+ * не прикреплён, - "".
+ * - isLoading - boolean - находится в состоянии true если идёт процесс загрузки.
+ * - inputFile - выбраный пользователем файл, хранящийся в state компонента TaskCard.
+ */
 const TaskCardFooter = ({
                             isEdit,
                             isNewTask,
@@ -17,7 +33,7 @@ const TaskCardFooter = ({
                             fileName,
                             filePath,
                             isLoading,
-                            inputFile
+                            inputFile,
                         }) => {
     return (
         <div className={styles.wrapper}>
