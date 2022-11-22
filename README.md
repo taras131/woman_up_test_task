@@ -41,7 +41,7 @@ npm run lint:fix
 
 ## Деплой:
 
-- https://app.netlify.com/sites/loquacious-sprinkles-a4f98e/deploys
+- https://loquacious-sprinkles-a4f98e.netlify.app/
 
 
 ## Бекенд:
