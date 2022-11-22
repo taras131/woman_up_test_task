@@ -5,9 +5,9 @@
   width: 100%;
 
   .task_section {
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    justify-items: center;
     gap: 25px;
     margin-top: 40px;
 
