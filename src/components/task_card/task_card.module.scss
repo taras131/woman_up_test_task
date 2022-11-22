@@ -1,36 +1,54 @@
+@use "src/styles/color-variables" as vars;
+
 .wrapper {
-  padding: 15px;
-  border: 1px solid black;
-  border-radius: 20px;
+  padding: 0 15px;
+  box-shadow: 0 0 4px vars.$drop-shadow-small, 0 4px 16px vars.$drop-shadow-small;
+  background-color: vars.$bg-primary;
+  border-radius: 5px;
   width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  .header {
-    min-height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-  }
-
-  .main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100px;
-    width: 100%;
-    p{
-
+  transition: all .3s;
+  opacity: 0;
+  animation: ani 2.5s forwards;
+  @keyframes ani {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
     }
   }
-  .footer {
-    min-height: 60px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+
+  input, textarea {
+    border: 1.2px solid vars.$borders-divider-disabled-bg;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus {
+      outline: 1.2px solid vars.$color-primary;
+    }
   }
+}
+
+.completed {
+  background-color: vars.$success;
+  color: white;
+}
+
+.edit {
+  background-color: vars.$dark-secondary;
+}
+
+.after {
+  background-color: vars.$warning;
+}
+
+.new {
+  background-color: vars.$drop-shadow-small;
+  opacity: 1;
 }
