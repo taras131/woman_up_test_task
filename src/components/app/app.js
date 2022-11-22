@@ -18,7 +18,6 @@ import {TASK_COLLECTION_NAME} from "../../utils/constants";
 const App = () => {
     const [tasks, setTasks] = useState([]);
     useEffect(() => {
-
             const q = query(collection(db, TASK_COLLECTION_NAME));
             const unsubscribe = onSnapshot(q, (querySnapshot) => {
                 const tasksArr = [];
@@ -32,8 +31,6 @@ const App = () => {
                 }
             });
             return () => unsubscribe();
-
-
     }, []);
     const taskList = tasks.map(item => (
         <li key={item.id}>
